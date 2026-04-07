@@ -4,8 +4,10 @@ const PORT = 8000
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200
-    res.setHeader('Content-Type', 'text/html')
-    res.end('<html><h1>The Other Side</h1></html>')
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    res.end('<html><head></head><body><h1>Hello World</h1></body></html>')
 })
 
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+})
