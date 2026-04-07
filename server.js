@@ -1,12 +1,11 @@
 import http from 'node:http'
-import path from 'node:path'
+import { serveStatic } from './utils/serveStatic.js'
 
 const PORT = 8000
 const __dirname = import.meta.dirname
 
 const server = http.createServer((req, res) => {
-    const pathToResource = path.join(__dirname, 'public', 'index.html')
-    console.log("pathname", pathToResource);
+    serveStatic(__dirname)
 
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/html')
